@@ -9,13 +9,13 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    color: #440202;
+    color: #440202;/*Burgundy Color*/
     line-height: 1.6;
 }
 
 /* Header styling */
 header {
-    background-color: #440202;
+    background-color: #440202;/*Burgundy Color*/
     color: white;
     padding: 1rem 0;
     text-align: center;
@@ -46,6 +46,7 @@ nav ul li a {
 
 nav ul li a:hover {
     text-decoration: underline;
+    color: #ff5733; /* Orange Color*/
 }
 
 /* Main content styling */
@@ -59,10 +60,17 @@ main {
 footer {
     text-align: center;
     padding: 1rem;
-    background-color: #440202;
+    background-color: #440202; /*Burgundy Color*/
     color: white;
 }
 
 footer p {
     font-size: 0.8rem;
+}
+footer a:hover {
+    color: #ff5733 /* Orange Color*/
+}
+img:hover {
+    transform: scale(1.25); /* 25% bigger*/
+    transition: transform 0.3s ease; /*Smooth effect*/
 }
