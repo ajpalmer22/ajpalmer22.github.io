@@ -82,3 +82,9 @@ footer a:hover {
 .footer-link:hover {
     color: #ff5733; /* Hover effect */
 }
+/* Resize image using class */
+.resize-image {
+    width: 100%; /* Makes the image responsive and fit within its container */
+    max-width: 600px; /* Prevents the image from getting too big */
+    height: auto; /* Keeps the aspect ratio intact */
+}
