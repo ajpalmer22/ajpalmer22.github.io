@@ -82,6 +82,11 @@ footer a:hover {
 .footer-link:hover {
     color: #ff5733; /* Hover effect */
 }
+/* Container for the image (centering and positioning it well) */
+.image-container {
+    text-align: center; /* Centers the image horizontally */
+    margin: 20px auto; /* Adds spacing around the image, centered */
+}
 /* Resize image using class */
 .resize-image {
     width: 50%; /* Makes the image responsive and fit within its container */
