@@ -84,7 +84,7 @@ footer a:hover {
 }
 /* Resize image using class */
 .resize-image {
-    width: 100%; /* Makes the image responsive and fit within its container */
-    max-width: 600px; /* Prevents the image from getting too big */
+    width: 50%; /* Makes the image responsive and fit within its container */
+    max-width: 300px; /* Prevents the image from getting too big */
     height: auto; /* Keeps the aspect ratio intact */
 }
