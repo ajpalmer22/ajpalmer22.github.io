@@ -82,8 +82,3 @@ footer a:hover {
 .footer-link:hover {
     color: #ff5733; /* Hover effect */
 }
-
-img:hover {
-    transform: scale(1.25); /* 25% bigger*/
-    transition: transform 0.3s ease; /*Smooth effect*/
-}
