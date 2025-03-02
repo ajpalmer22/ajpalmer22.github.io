@@ -72,7 +72,7 @@ footer a:hover {
 }
 /* Ensure visited links stay the same color */
 footer a:visited {
-    color: orange; /* Keeps the link orange even after clicking */
+    color: #ff5733; /* Keeps the link orange even after clicking */
 }
 img:hover {
     transform: scale(1.25); /* 25% bigger*/
