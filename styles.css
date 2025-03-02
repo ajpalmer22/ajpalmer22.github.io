@@ -56,6 +56,22 @@ main {
     margin: 0 auto;
 }
 
+/* Default link color */
+a {
+    color: #ff5733; /* Default color */
+    text-decoration: none; /* Remove underline if you don't want it */
+}
+
+/* Link color when hovered over */
+a:hover {
+    color: #ff5733; /* Keep the same color when hovered */
+}
+
+/* Link color once it has been clicked (visited) */
+a:visited {
+    color: #ff5733; /* Keep the same color for visited links */
+}
+
 /* Footer styling */
 footer {
     text-align: center;
