@@ -70,6 +70,10 @@ footer p {
 footer a:hover {
     color: #ff5733 /* Orange Color*/
 }
+/* Ensure visited links stay the same color */
+footer a:visited {
+    color: orange; /* Keeps the link orange even after clicking */
+}
 img:hover {
     transform: scale(1.25); /* 25% bigger*/
     transition: transform 0.3s ease; /*Smooth effect*/
