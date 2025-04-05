@@ -3,27 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cybersecurity Quiz</title>
+    <title>HTML5 & SEO Quiz</title>
+    <!-- Link to external CSS file for styling -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Header with navigation links -->
     <header>
-        <h1>Cybersecurity Quiz</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="topic1.html">HTML5 Research</a></li>
+                <li><a href="topic2.html">SEO Research</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="resources.html">References & Resources</a></li>
+                <li><a href="https://github.com/ajpalmer22/ajpalmer22.github.io" target="_blank">GitHub Repo</a></li>
+            </ul>
+        </nav>
     </header>
+    
 
+    <!-- Main content of the quiz -->
     <main>
+        <h1>HTML5 & SEO Knowledge Quiz</h1>
         <section>
-            <p>Test your knowledge of cybersecurity. Good luck!</p>
+            <p>Test your knowledge about HTML5 and SEO!</p>
+            <!-- Container for the quiz questions to be populated by JavaScript -->
             <div id="quiz-container"></div>
+            <!-- Button to submit the quiz -->
             <button onclick="submitQuiz()">Submit</button>
+            <!-- Displaying the quiz result here -->
             <div id="result"></div>
         </section>
     </main>
 
+    <!-- Footer with copyright and link to home page -->
     <footer>
-        <p>© 2025 Cyber Awareness | <a href="index.html" class="footer-link">Home</a></p>
+        <p>© 2025 Aaron Palmer | <a href="index.html" class="footer-link">Home</a></p>
     </footer>
 
+    <!-- Link to the external JavaScript file -->
     <script src="quiz.js"></script>
 </body>
 </html>
