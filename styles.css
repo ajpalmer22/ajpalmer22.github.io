@@ -1,21 +1,21 @@
-/* Reset margin and padding */
+/* Reset default styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body styling */
+/* Base styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    color: #440202;/*Burgundy Color*/
+    color: #440202; /* Burgundy */
     line-height: 1.6;
 }
 
-/* Header styling */
+/* Header */
 header {
-    background-color: #440202;/*Burgundy Color*/
+    background-color: #440202; /* Burgundy */
     color: white;
     padding: 1rem 0;
     text-align: center;
@@ -25,10 +25,9 @@ header h1 {
     font-size: 2rem;
 }
 
-/* Navigation menu */
+/* Navigation */
 nav ul {
     list-style: none;
-    padding: 0;
     display: flex;
     justify-content: center;
     margin-top: 1rem;
@@ -46,66 +45,62 @@ nav ul li a {
 
 nav ul li a:hover {
     text-decoration: underline;
-    color: #ff5733; /* Orange Color*/
+    color: #ff5733; /* Orange */
 }
 
-/* Main content styling */
+/* Main content */
 main {
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Default link color */
+/* Link styling */
 a {
-    color: #ff5733; /* Default color */
-    text-decoration: none; /* Remove underline if you don't want it */
+    color: #ff5733;
+    text-decoration: none;
 }
 
-/* Link color when hovered over */
-a:hover {
-    color: #ff5733; /* Keep the same color when hovered */
-}
-
-/* Link color once it has been clicked (visited) */
+a:hover,
 a:visited {
-    color: #ff5733; /* Keep the same color for visited links */
+    color: #ff5733;
 }
 
-/* Footer styling */
+/* Footer */
 footer {
+    background-color: #440202;
+    color: white;
     text-align: center;
     padding: 1rem;
-    background-color: #440202; /*Burgundy Color*/
-    color: white;
 }
 
 footer p {
     font-size: 0.8rem;
 }
+
 footer a:hover {
-    color: #ff5733 /* Orange Color*/
+    color: #ff5733;
 }
-/* Footer link styling */
+
+/* Footer links */
 .footer-link {
-    color: white; /* Default color */
+    color: white;
 }
 
-.footer-link:visited {
-    color: #ff5733; /* Override purple */
-}
-
+.footer-link:visited,
 .footer-link:hover {
-    color: #ff5733; /* Hover effect */
+    color: #ff5733;
 }
-/* Container for the image (centering and positioning it well) */
+
+/* Image container */
 .image-container {
-    text-align: center; /* Centers the image horizontally */
-    margin: 20px auto; /* Adds spacing around the image, centered */
+    text-align: center;
+    margin: 20px auto;
 }
-/* Resize image using class */
+
+/* Image resizing */
 .resize-image {
-    width: 50%; /* Makes the image responsive and fit within its container */
-    max-width: 300px; /* Prevents the image from getting too big */
-    height: auto; /* Keeps the aspect ratio intact */
+    width: 50%;
+    max-width: 300px;
+    height: auto;
 }
