@@ -104,3 +104,58 @@ footer a:hover {
     max-width: 300px;
     height: auto;
 }
+
+/* Styling for the quiz container */
+.quiz-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff; /* White background for the quiz */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for quiz header */
+.quiz-container h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #440202; /* Burgundy */
+}
+
+/* Styling for quiz questions */
+.quiz-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.quiz-container li {
+    margin-bottom: 15px;
+}
+
+/* Styling for quiz labels */
+.quiz-container label {
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Styling for quiz radio buttons */
+.quiz-container input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Styling for the submit button */
+.quiz-container .submit-btn {
+    background-color: #ff5733; /* Orange button color */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.quiz-container .submit-btn:hover {
+    background-color: #c94e27; /* Darker orange for hover */
+}
