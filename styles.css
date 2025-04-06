@@ -157,6 +157,9 @@ footer {
     font-size: 0.9rem;
     background-color: #440202
 }
+footer p {
+    color: white;
+}
 
 footer img {
     margin-top: 10px;
