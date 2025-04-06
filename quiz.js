@@ -26,7 +26,7 @@ const quizData = [
     {
         type: "checkbox", // Multiple-answer
         question: "Which of the following are semantic HTML5 elements? (Select all that apply)",
-        options: ["<header>", "<div>", "<article>", "<section>", "<span>"],
+        options: ["&lt;header&gt;", "&lt;div&gt;", "&lt;article&gt;", "&lt;section&gt;", "&lt;span&gt;"],
         answer: ["<header>", "<article>", "<section>"]
     }
 ];
