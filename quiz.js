@@ -69,14 +69,16 @@ function loadQuiz() {
 
         // If the question involves checkboxes (multiple correct answers possible)
         if (item.type === "checkbox") {
+            const checkboxList = document.createElement('div');
             item.options.forEach((option, i) => {
-                const label = document.createElement('label');
-                label.innerHTML = `
+                const checkboxItem = document.createElement('label');
+                checkboxItem.innerHTML = `
                     <input type="checkbox" name="question${index}" value="${option}"> ${option}
                 `;
-                questionElement.appendChild(label);
-                questionElement.appendChild(document.createElement("br"));
+                checkboxList.appendChild(checkboxItem);
+                checkboxList.appendChild(document.createElement("br"));
             });
+            questionElement.appendChild(checkboxList);
         }
 
         quizContainer.appendChild(questionElement);
@@ -105,39 +107,70 @@ function submitQuiz() {
     // Loop through each question to check if the answers are correct
     quizData.forEach((item, index) => {
         let userAnswer = [];
-        
+
         if (item.type === "multiple") {
             const selected = document.querySelector(`input[name="question${index}"]:checked`);
-            if (selected && selected.value === item.answer) {
-                score++;
-                results.push(`Question ${index + 1}: Correct`);
+            if (selected) {
+                const userAnswerText = selected.value.trim();
+                const correctAnswerText = item.answer.trim();
+
+                if (userAnswerText.toLowerCase() === correctAnswerText.toLowerCase()) {
+                    score++;
+                    results.push({
+                        question: `Question ${index + 1}: Correct!`,
+                        correctAnswer: item.answer
+                    });
+                } else {
+                    results.push({
+                        question: `Question ${index + 1}: Incorrect.`,
+                        correctAnswer: item.answer
+                    });
+                }
             } else {
-                results.push(`Question ${index + 1}: Incorrect`);
+                results.push({
+                    question: `Question ${index + 1}: No answer selected`,
+                    correctAnswer: item.answer
+                });
             }
         }
-        
+
         if (item.type === "text") {
             const input = document.querySelector(`input[name="question${index}"]`);
-            if (input && input.value.trim().toLowerCase() === item.answer.toLowerCase()) {
+            const userAnswerText = input ? input.value.trim() : "";
+            const correctAnswerText = item.answer.trim();
+
+            if (userAnswerText.toLowerCase() === correctAnswerText.toLowerCase()) {
                 score++;
-                results.push(`Question ${index + 1}: Correct`);
+                results.push({
+                    question: `Question ${index + 1}: Correct!`,
+                    correctAnswer: item.answer
+                });
             } else {
-                results.push(`Question ${index + 1}: Incorrect`);
+                results.push({
+                    question: `Question ${index + 1}: Incorrect.`,
+                    correctAnswer: item.answer
+                });
             }
         }
-        
+
         if (item.type === "checkbox") {
             const selectedCheckboxes = document.querySelectorAll(`input[name="question${index}"]:checked`);
-            selectedCheckboxes.forEach((checkbox) => userAnswer.push(checkbox.value));
+            selectedCheckboxes.forEach((checkbox) => userAnswer.push(checkbox.value.trim()));
 
-            const correctAnswers = item.answer.sort();
+            const correctAnswers = item.answer.map(answer => answer.trim()).sort();
             userAnswer.sort();
-            
+
             if (JSON.stringify(userAnswer) === JSON.stringify(correctAnswers)) {
                 score++;
-                results.push(`Question ${index + 1}: Correct`);
+                results.push({
+                    question: `Question ${index + 1}: Correct!`,
+                    correctAnswer: item.answer.join(", ")
+                });
             } else {
-                results.push(`Question ${index + 1}: Incorrect`);
+                results.push({
+                    question: `Question ${index + 1}: Incorrect.`,
+                    correctAnswer: item.answer.join(", ")
+                });
             }
         }
     });
@@ -148,7 +181,7 @@ function submitQuiz() {
 
     // Display individual results
     results.forEach((result) => {
-        resultElement.innerHTML += `${result}<br>`;
+        resultElement.innerHTML += `${result.question} Correct answer: ${result.correctAnswer}<br>`;
     });
 
     // Pass/Fail Logic
