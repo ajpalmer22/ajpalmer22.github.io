@@ -1,52 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML5 & SEO Quiz</title>
-    <!-- Link to external CSS file for styling -->
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>HTML5 & SEO Knowledge Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 40px;
+    }
+
+    #quiz-wrapper {
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    .question-block {
+      margin-bottom: 25px;
+    }
+
+    .question-block p {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .question-block ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .question-block li {
+      margin-bottom: 10px;
+    }
+
+    .question-block input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 12px 20px;
+      background-color: #330000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #660000;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <!-- Header with navigation links -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="topic1.html">HTML5 Research</a></li>
-                <li><a href="topic2.html">SEO Research</a></li>
-                <li><a href="quiz.html">Quiz</a></li>
-                <li><a href="resources.html">References & Resources</a></li>
-                <li><a href="https://github.com/ajpalmer22/ajpalmer22.github.io" target="_blank">GitHub Repo</a></li>
-            </ul>
-        </nav>
-    </header>
-    
+  <div id="quiz-wrapper">
+    <h2>HTML5 & SEO Knowledge Quiz</h2>
+    <div id="quiz-container"></div>
+    <button onclick="submitQuiz()">Submit</button>
+    <div id="result"></div>
+  </div>
 
-    <!-- Main content of the quiz -->
-    <main>
-        <h1>HTML5 & SEO Knowledge Quiz</h1>
-        <section>
-            <p>Test your knowledge about HTML5 and SEO!</p>
-            <!-- Container for the quiz questions to be populated by JavaScript -->
-            <div id="quiz-container"></div>
-            <!-- Button to submit the quiz -->
-            <button onclick="submitQuiz()">Submit</button>
-            <!-- Displaying the quiz result here -->
-            <div id="result"></div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <p>Aaron Palmer's 2025 Development Project for KSU IT 3203</p>
-        <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank">
-            <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" width="88" height="31" style="border:0;">
-        </a>
-    </footer>
-</body>
-
-    <!-- Link to the external JavaScript file -->
-    <script src="quiz.js"></script>
+  <script src="quiz.js"></script>
 </body>
 </html>
