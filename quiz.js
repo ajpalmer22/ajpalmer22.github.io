@@ -2,28 +2,28 @@
 const quizData = [
     {
         question: "Which HTML5 element is used to define navigation links?",
-        options: ["<nav>", "<header>", "<footer>", "<section>"],
-        answer: "<nav>" // Correct answer
+        options: ["&lt;nav&gt;", "&lt;header&gt;", "&lt;footer&gt;", "&lt;section&gt;"],
+        answer: "&lt;nav&gt;" // Correct answer
     },
     {
         question: "What does SEO stand for?",
         options: ["Search External Optimization", "Search Engine Optimization", "Structured Engine Optimization", "Software Engine Optimization"],
-        answer: "Search Engine Optimization" // Correct answer
+        answer: "Search Engine Optimization"
     },
     {
         question: "Which HTML5 element is used for embedding audio?",
-        options: ["<audio>", "<video>", "<embed>", "<object>"],
-        answer: "<audio>" // Correct answer
+        options: ["&lt;audio&gt;", "&lt;video&gt;", "&lt;embed&gt;", "&lt;object&gt;"],
+        answer: "&lt;audio&gt;"
     },
     {
         question: "What is the primary purpose of SEO?",
         options: ["Increase website traffic", "Make a website mobile-friendly", "Enhance website security", "Improve website design"],
-        answer: "Increase website traffic" // Correct answer
+        answer: "Increase website traffic"
     },
     {
         question: "Which of the following is a feature of HTML5?",
         options: ["Native multimedia support", "ActiveX controls", "Flash player integration", "Java applets"],
-        answer: "Native multimedia support" // Correct answer
+        answer: "Native multimedia support"
     }
 ];
 
