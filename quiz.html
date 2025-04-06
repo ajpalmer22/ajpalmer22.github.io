@@ -4,62 +4,65 @@
   <meta charset="UTF-8">
   <title>HTML5 & SEO Knowledge Quiz</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f3f3f3;
-      margin: 0;
-      padding: 40px;
+body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background-color: #f4f4f4;
     }
 
-    #quiz-wrapper {
-      max-width: 700px;
-      margin: 0 auto;
-      background-color: white;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    .container {
+        background-color: #fff;
+        padding: 20px 30px;
+        border-radius: 10px;
+        max-width: 600px;
+        margin: auto;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
-    .question-block {
-      margin-bottom: 25px;
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
     }
 
-    .question-block p {
-      font-weight: bold;
-      margin-bottom: 10px;
+    .question {
+        margin-bottom: 25px;
     }
 
-    .question-block ul {
-      list-style: none;
-      padding-left: 0;
+    ul {
+        list-style-type: none; /* 🔥 removes the bullet points */
+        padding-left: 0;
     }
 
-    .question-block li {
-      margin-bottom: 10px;
+    li {
+        margin: 8px 0;
     }
 
-    .question-block input[type="radio"] {
-      margin-right: 10px;
+    label {
+        margin-left: 8px;
+        cursor: pointer;
     }
 
-    button {
-      padding: 12px 20px;
-      background-color: #330000;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
+    #submit-btn {
+        display: block;
+        margin: 30px auto 10px;
+        padding: 10px 25px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
     }
 
-    button:hover {
-      background-color: #660000;
+    #submit-btn:hover {
+        background-color: #0056b3;
     }
 
     #result {
-      margin-top: 20px;
-      font-size: 18px;
-      font-weight: bold;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 20px;
     }
   </style>
 </head>
