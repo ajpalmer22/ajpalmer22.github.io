@@ -1,4 +1,3 @@
-// Updated quizData with different question types
 const quizData = [
     {
         type: "multiple", // Single-answer multiple choice
@@ -26,8 +25,8 @@ const quizData = [
     {
         type: "checkbox", // Multiple-answer
         question: "Which of the following are semantic HTML5 elements? (Select all that apply)",
-        options: ["<header>", "<div>", "<article>", "<section>", "<span>"],
-        answer: ["<header>", "<article>", "<section>"]
+        options: ["&lt;header&gt;", "&lt;div&gt;", "&lt;article&gt;", "&lt;section&gt;", "&lt;span&gt;"],
+        answer: ["&lt;header&gt;", "&lt;article&gt;", "&lt;section&gt;"]
     }
 ];
 
