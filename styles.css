@@ -179,3 +179,51 @@ label {
 input[type="radio"] {
     vertical-align: middle;
 }
+.question-block {
+    margin-bottom: 25px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+}
+
+.question-block p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.question-block ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.question-block li {
+    margin-bottom: 8px;
+}
+
+.question-block input[type="radio"] {
+    margin-right: 8px;
+}
+
+.question-block label {
+    cursor: pointer;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #330000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #800000;
+}
+
+#result {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 20px;
+}    
