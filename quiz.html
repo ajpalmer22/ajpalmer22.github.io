@@ -3,106 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>HTML5 & SEO Knowledge Quiz</title>
-  <style>
-    .top-banner {
-    background-color: #440202; /* Burgundy */
-    padding: 10px 0;
-    text-align: center;
-}
-
-.top-banner nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-}
-
-.top-banner nav a:hover {
-    text-decoration: underline;
-}
-body {
-        font-family: Arial, sans-serif;
-        margin: 40px;
-        background-color: #f4f4f4;
-    }
-
-    .container {
-        background-color: #fff;
-        padding: 20px 30px;
-        border-radius: 10px;
-        max-width: 600px;
-        margin: auto;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    .question {
-        margin-bottom: 25px;
-    }
-
-    ul {
-        list-style-type: none; /* 🔥 removes the bullet points */
-        padding-left: 0;
-    }
-
-    li {
-        margin: 8px 0;
-    }
-
-    label {
-        margin-left: 8px;
-        cursor: pointer;
-    }
-
-    #submit-btn {
-        display: block;
-        margin: 30px auto 10px;
-        padding: 10px 25px;
-        background-color: #007BFF;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        font-size: 16px;
-        cursor: pointer;
-    }
-
-    #submit-btn:hover {
-        background-color: #0056b3;
-    }
-
-    #result {
-        text-align: center;
-        font-size: 18px;
-        font-weight: bold;
-        margin-top: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="top-banner">
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="topic1.html">HTML5 Research</a></li>
-                    <li><a href="topic2.html">SEO Research</a></li>
-                    <li><a href="quiz.html">Quiz</a></li>
-                    <li><a href="resources.html">References & Resources</a></li>
-                    <li><a href="https://github.com/ajpalmer22/ajpalmer22.github.io" target="_blank">GitHub Repo</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-  <div id="quiz-wrapper">
-    <h2>HTML5 & SEO Knowledge Quiz</h2>
-    <div id="quiz-container"></div>
-    <button onclick="submitQuiz()">Submit</button>
-    <div id="result"></div>
-  </div>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="topic1.html">HTML5 Research</a></li>
+        <li><a href="topic2.html">SEO Research</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="resources.html">References & Resources</a></li>
+        <li><a href="https://github.com/ajpalmer22/ajpalmer22.github.io" target="_blank">GitHub Repo</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <h2>HTML5 & SEO Knowledge Quiz</h2>
+      <div id="quiz-container"></div>
+      <button id="submit-btn" onclick="submitQuiz()">Submit</button>
+      <div id="result"></div>
+    </div>
+  </main>
 
   <script src="quiz.js"></script>
 </body>
