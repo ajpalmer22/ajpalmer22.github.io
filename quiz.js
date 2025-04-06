@@ -152,28 +152,24 @@ function submitQuiz() {
                 });
             }
         }
+// If it's a checkbox-style question (multiple correct answers)
+if (item.type === "checkbox") {
+    const selectedCheckboxes = document.querySelectorAll(`input[name="question${index}"]:checked`);
+    selectedCheckboxes.forEach((checkbox) => userAnswer.push(checkbox.value));
 
-        if (item.type === "checkbox") {
-            const selectedCheckboxes = document.querySelectorAll(`input[name="question${index}"]:checked`);
-            selectedCheckboxes.forEach((checkbox) => userAnswer.push(checkbox.value.trim()));
+    // Sort both userAnswer and correct answers before comparing
+    const correctAnswers = item.answer.sort();
+    userAnswer.sort();
 
-            const correctAnswers = item.answer.map(answer => answer.trim()).sort();
-            userAnswer.sort();
-
-            if (JSON.stringify(userAnswer) === JSON.stringify(correctAnswers)) {
-                score++;
-                results.push({
-                    question: `Question ${index + 1}: Correct!`,
-                    correctAnswer: item.answer.join(", ")
-                });
-            } else {
-                results.push({
-                    question: `Question ${index + 1}: Incorrect.`,
-                    correctAnswer: item.answer.join(", ")
-                });
-            }
-        }
-    });
+    // Check if the arrays match
+    if (JSON.stringify(userAnswer) === JSON.stringify(correctAnswers)) {
+        score++;
+        results.push(`Question ${index + 1}: Correct`);
+    } else {
+        results.push(`Question ${index + 1}: Incorrect. The correct answers are: ${correctAnswers.join(", ")}`);
+    }
+}
+});
 
     // Display the final score and result for each question
     const resultElement = document.getElementById('result');
