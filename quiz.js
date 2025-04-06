@@ -163,16 +163,16 @@ function submitQuiz() {
     userAnswer.sort();
 
     // Check if the arrays match
-    if (JSON.stringify(userAnswer) === JSON.stringify(correctAnswers)) {
-        score++;
+    if (userAnswer.length === correctAnswers.length && JSON.stringify(userAnswer) === JSON.stringify(correctAnswers)) {  // Changed: added length check
+        score++; // Correct answer
         results.push({
             question: `Question ${index + 1}: Correct!`,
-            correctAnswer: item.answer.join(", ") // Join array for better display
+            correctAnswer: item.answer.join(", ") // Changed: output correct answers as a joined string
         });
     } else {
         results.push({
             question: `Question ${index + 1}: Incorrect.`,
-            correctAnswer: item.answer.join(", ")
+            correctAnswer: item.answer.join(", ")  // Changed: output correct answers as a joined string
         });
     }
 }
