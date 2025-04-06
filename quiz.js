@@ -37,7 +37,7 @@ function loadQuiz() {
     quizData.forEach((item, index) => {
         // Creating a container for each question
         const questionElement = document.createElement('div');
-        questionElement.classList.add('question'); // Adding class for styling
+        questionElement.classList.add('question-block'); // Adding class for styling
 
         // Creating the question text element
         const questionText = document.createElement('p');
