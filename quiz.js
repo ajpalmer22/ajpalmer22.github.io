@@ -26,7 +26,7 @@ const quizData = [
         type: "checkbox", // Multiple-answer
         question: "Which of the following are semantic HTML5 elements? (Select all that apply)",
         options: ["&lt;header&gt;", "&lt;div&gt;", "&lt;article&gt;", "&lt;section&gt;", "&lt;span&gt;"],
-        answer: ["<header>", "<article>;", "<section>"]
+        answer: ["&lt;header&gt;", "&lt;article&gt;", "&lt;section&gt;"]
     }
 ];
 
@@ -152,24 +152,26 @@ function submitQuiz() {
                 });
             }
         }
-// If it's a checkbox-style question (multiple correct answers)
-if (item.type === "checkbox") {
-    const selectedCheckboxes = document.querySelectorAll(`input[name="question${index}"]:checked`);
-    selectedCheckboxes.forEach((checkbox) => userAnswer.push(checkbox.value));
 
-    // Sort both userAnswer and correct answers before comparing
-    const correctAnswers = item.answer.sort();
-    userAnswer.sort();
+        // If it's a checkbox-style question (multiple correct answers)
+        if (item.type === "checkbox") {
+            let userAnswer = []; // Initialize userAnswer inside the loop to reset for each question
+            const selectedCheckboxes = document.querySelectorAll(`input[name="question${index}"]:checked`);
+            selectedCheckboxes.forEach((checkbox) => userAnswer.push(checkbox.value));
 
-    // Check if the arrays match
-    if (JSON.stringify(userAnswer) === JSON.stringify(correctAnswers)) {
-        score++;
-        results.push(`Question ${index + 1}: Correct`);
-    } else {
-        results.push(`Question ${index + 1}: Incorrect. The correct answers are: ${correctAnswers.join(", ")}`);
-    }
-}
-});
+            // Sort both userAnswer and correct answers before comparing
+            const correctAnswers = item.answer.sort();
+            userAnswer.sort();
+
+            // Check if the arrays match
+            if (JSON.stringify(userAnswer) === JSON.stringify(correctAnswers)) {
+                score++;
+                results.push(`Question ${index + 1}: Correct`);
+            } else {
+                results.push(`Question ${index + 1}: Incorrect. The correct answers are: ${correctAnswers.join(", ")}`);
+            }
+        }
+    });
 
     // Display the final score and result for each question
     const resultElement = document.getElementById('result');
