@@ -26,7 +26,7 @@ const quizData = [
     {
         type: "checkbox", // Multiple-answer
         question: "Which of the following are semantic HTML5 elements? (Select all that apply)",
-        options: ["&lt;header&gt;", "&lt;div&gt;", "&lt;article&gt;", "&lt;section&gt;", "&lt;span&gt;"],
+        options: ["<header>", "<div>", "<article>", "<section>", "<span>"],
         answer: ["<header>", "<article>", "<section>"]
     }
 ];
@@ -34,8 +34,9 @@ const quizData = [
 // Function to load the quiz onto the page
 function loadQuiz() {
     const quizContainer = document.getElementById('quiz-container');
-    quizContainer.innerHTML = "";
+    quizContainer.innerHTML = ""; // Reset the quiz container
 
+    // Loop through each question in quizData to generate quiz elements dynamically
     quizData.forEach((item, index) => {
         const questionElement = document.createElement('div');
         questionElement.classList.add('question-block');
@@ -58,7 +59,7 @@ function loadQuiz() {
             questionElement.appendChild(optionsList);
         }
 
-        // If it is a fill-in the blank question
+        // If it is a fill-in-the-blank question
         if (item.type === "text") {
             const input = document.createElement('input');
             input.type = "text";
@@ -81,115 +82,90 @@ function loadQuiz() {
 
         quizContainer.appendChild(questionElement);
     });
+
+    // Add the submit button
+    const submitButton = document.createElement('button');
+    submitButton.textContent = "Submit Quiz";
+    submitButton.id = "submit-btn";
+    submitButton.onclick = submitQuiz;
+    quizContainer.appendChild(submitButton);
+
+    // Add restart button
+    const restartButton = document.createElement('button');
+    restartButton.textContent = "Restart Quiz";
+    restartButton.onclick = restartQuiz;
+    quizContainer.appendChild(restartButton);
 }
 
 // Function to submit the quiz and calculate the score
 function submitQuiz() {
     let score = 0;
+    const totalQuestions = quizData.length;
+    const results = [];
 
-    // Create elements for results dynamically
-    const resultContainer = document.createElement('div');
-    const resultTitle = document.createElement('h3');
-    resultTitle.textContent = "Your Results:";
-    resultContainer.appendChild(resultTitle);
-
+    // Loop through each question to check if the answers are correct
     quizData.forEach((item, index) => {
-        let userAnswer = '';
-        let correctAnswer = item.answer;
-
-        // Create a block for each question's result
-        const questionResultBlock = document.createElement('div');
-        questionResultBlock.classList.add('question-result');
-
-        const questionElement = document.createElement('p');
-        questionElement.innerHTML = `<strong>Question:</strong> ${item.question}`;
-        questionResultBlock.appendChild(questionElement);
-
-        // Multiple-choice question
+        let userAnswer = [];
+        
         if (item.type === "multiple") {
             const selected = document.querySelector(`input[name="question${index}"]:checked`);
-            if (selected) {
-                userAnswer = selected.value;
-                if (userAnswer === correctAnswer) score++;
+            if (selected && selected.value === item.answer) {
+                score++;
+                results.push(`Question ${index + 1}: Correct`);
+            } else {
+                results.push(`Question ${index + 1}: Incorrect`);
             }
         }
-
-        // Text-based answer questions
+        
         if (item.type === "text") {
             const input = document.querySelector(`input[name="question${index}"]`);
-            if (input) {
-                userAnswer = input.value.trim();
-                if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) score++;
-            }
-        }
-
-        // Checkbox questions (multiple correct answers)
-        if (item.type === "checkbox") {
-            const selected = document.querySelectorAll(`input[name="question${index}"]:checked`);
-            const selectedValues = Array.from(selected).map(cb => cb.value);
-            const correct = correctAnswer;
-
-            if (selectedValues.length === correct.length && selectedValues.every(val => correct.includes(val))) {
+            if (input && input.value.trim().toLowerCase() === item.answer.toLowerCase()) {
                 score++;
+                results.push(`Question ${index + 1}: Correct`);
+            } else {
+                results.push(`Question ${index + 1}: Incorrect`);
             }
         }
+        
+        if (item.type === "checkbox") {
+            const selectedCheckboxes = document.querySelectorAll(`input[name="question${index}"]:checked`);
+            selectedCheckboxes.forEach((checkbox) => userAnswer.push(checkbox.value));
 
-        const userAnswerElement = document.createElement('p');
-        userAnswerElement.innerHTML = `<strong>Your answer:</strong> ${userAnswer}`;
-        questionResultBlock.appendChild(userAnswerElement);
-
-        const correctAnswerElement = document.createElement('p');
-        correctAnswerElement.innerHTML = `<strong>Correct answer:</strong> ${correctAnswer}`;
-        questionResultBlock.appendChild(correctAnswerElement);
-
-        const resultElement = document.createElement('p');
-        resultElement.innerHTML = `<strong>Result:</strong> ${userAnswer === correctAnswer ? 'Correct' : 'Incorrect'}`;
-        questionResultBlock.appendChild(resultElement);
-
-        resultContainer.appendChild(questionResultBlock);
+            const correctAnswers = item.answer.sort();
+            userAnswer.sort();
+            
+            if (JSON.stringify(userAnswer) === JSON.stringify(correctAnswers)) {
+                score++;
+                results.push(`Question ${index + 1}: Correct`);
+            } else {
+                results.push(`Question ${index + 1}: Incorrect`);
+            }
+        }
     });
 
-    // Calculate pass/fail (passing score is 4 out of 5)
-    const passingScore = 4;
-    const passFailResult = score >= passingScore ? 'Pass' : 'Fail';
-
-    // Display the final score, overall result, and individual results
-    const finalScoreElement = document.createElement('p');
-    finalScoreElement.innerHTML = `<strong>Total Score:</strong> ${score} out of ${quizData.length}`;
-    resultContainer.appendChild(finalScoreElement);
-
-    const passFailElement = document.createElement('p');
-    passFailElement.innerHTML = `<strong>Overall Result:</strong> ${passFailResult}`;
-    resultContainer.appendChild(passFailElement);
-
-    // Append result container to the DOM
+    // Display the final score and result for each question
     const resultElement = document.getElementById('result');
-    resultElement.innerHTML = ''; // Clear any previous result
-    resultElement.appendChild(resultContainer);
+    resultElement.innerHTML = `You scored ${score} out of ${totalQuestions}<br><br>`;
+
+    // Display individual results
+    results.forEach((result) => {
+        resultElement.innerHTML += `${result}<br>`;
+    });
+
+    // Pass/Fail Logic
+    const passScore = totalQuestions * 0.7; // Passing score is 70%
+    if (score >= passScore) {
+        resultElement.innerHTML += `<br>You have passed the quiz!`;
+    } else {
+        resultElement.innerHTML += `<br>You have failed the quiz.`;
+    }
 }
 
-// Restart the quiz
+// Function to restart the quiz
 function restartQuiz() {
-    quizData.forEach((item, index) => {
-        const selectedRadio = document.querySelector(`input[name="question${index}"]:checked`);
-        if (selectedRadio) {
-            selectedRadio.checked = false;
-        }
-
-        const selectedCheckboxes = document.querySelectorAll(`input[name="question${index}"]:checked`);
-        selectedCheckboxes.forEach(cb => {
-            cb.checked = false;
-        });
-
-        const textInput = document.querySelector(`input[name="question${index}"]`);
-        if (textInput) {
-            textInput.value = '';
-        }
-    });
-
+    loadQuiz();
     const resultElement = document.getElementById('result');
-    resultElement.innerHTML = '';
+    resultElement.innerHTML = ''; // Clear the results
 }
 
-// Calling the loadQuiz function when the window loads
 window.onload = loadQuiz;

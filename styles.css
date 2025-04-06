@@ -11,6 +11,8 @@ body {
     background-color: #f4f4f4;
     color: #440202;
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
 /* Header and Nav */
@@ -113,6 +115,7 @@ ul li {
     margin-bottom: 25px;
 }
 
+/* Styling for Quiz Options */
 ul.quiz-options {
     list-style-type: none;
     padding-left: 0;
@@ -122,11 +125,20 @@ ul.quiz-options {
     margin: 8px 0;
 }
 
+/* Label styling */
 label {
     margin-left: 8px;
     cursor: pointer;
+    font-size: 1.1rem;
 }
 
+/* Input fields and checkboxes */
+input[type="radio"], input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* Styling for buttons */
 #submit-btn, button {
     display: block;
     margin: 30px auto 10px;
@@ -137,6 +149,7 @@ label {
     border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 #submit-btn:hover, button:hover {
@@ -155,8 +168,9 @@ footer {
     text-align: center;
     padding: 1.5rem 0;
     font-size: 0.9rem;
-    background-color: #440202
+    background-color: #440202;
 }
+
 footer p {
     color: white;
 }
@@ -164,6 +178,7 @@ footer p {
 footer img {
     margin-top: 10px;
 }
+
 .resize-image {
     max-width: 600px;
     width: 100%;
@@ -173,7 +188,56 @@ footer img {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
+
 .image-container {
     text-align: center;
     margin: 20px 0;
+}
+
+/* Specific styling for Select All That Apply checkbox options */
+input[type="checkbox"]:checked {
+    background-color: #ff5733;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 5px;
+}
+
+/* Styling for inputs inside the quiz */
+input[type="text"] {
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #007BFF;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header, footer {
+        padding: 1rem;
+    }
+
+    .container, #quiz-wrapper {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin-bottom: 10px;
+    }
 }
