@@ -20,8 +20,8 @@ const quizData = [
     },
     {
         type: "text", // Fill-in-the-blank
-        question: "What HTML tag is used to display the largest heading?",
-        answer: "<h1>"
+        question: "What year was HTML created?",
+        answer: "1991"
     },
     {
         type: "checkbox", // Multiple-answer
@@ -60,7 +60,7 @@ function loadQuiz() {
             const input = document.createElement('input');
             input.type = "text";
             input.name = `question${index}`;
-            input.placeholder = "Your answer...";
+            input.placeholder = "Type your answer here";
             questionElement.appendChild(input);
         }
 
