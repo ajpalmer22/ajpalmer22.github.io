@@ -119,10 +119,21 @@ ul li {
 ul.quiz-options {
     list-style-type: none;
     padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .quiz-options li {
-    margin: 8px 0;
+    margin: 0;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+.quiz-options li:hover {
+    background-color: #ececec;
 }
 
 /* Label styling */
@@ -222,22 +233,54 @@ input[type="text"]:focus {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    header, footer {
-        padding: 1rem;
-    }
 
+/* Tablets */
+@media (max-width: 992px) {
+    main {
+        padding: 1.5rem;
+    }
     .container, #quiz-wrapper {
-        padding: 15px;
         max-width: 90%;
     }
-
     nav ul {
         flex-direction: column;
         align-items: center;
     }
-
     nav ul li {
         margin-bottom: 10px;
+    }
+}
+
+/* Large Phones and Small Tablets */
+@media (max-width: 768px) {
+    header, footer {
+        padding: 1rem;
+    }
+    .container, #quiz-wrapper {
+        padding: 15px;
+    }
+    nav ul li {
+        margin: 5px 0;
+    }
+    .quiz-options li {
+        padding: 8px;
+    }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+    p, label, .quiz-options li {
+        font-size: 1rem;
+    }
+    #submit-btn, button {
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px;
+    }
+    .container, #quiz-wrapper {
+        padding: 10px;
     }
 }
